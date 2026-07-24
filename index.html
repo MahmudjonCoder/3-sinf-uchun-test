@@ -3,27 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3-Sinf Magic World ✨</title>
+    <title>3-Sinf TEST ✨</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Comic+Neue:wght@700&display=swap');
-        
-        body { font-family: 'Poppins', sans-serif;
-        background: linear-gradient(to right, #1e0c4f, #4b0082);
-    }
-        
+       
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #1e0c4f, #4b0082);
+            overflow-x: hidden;
+        }
+       
         .hero-bg {
-            background: linear-gradient(rgba(30,0,80,0.75), rgba(120,0,120,0.85)), 
+            background: linear-gradient(rgba(30,0,80,0.75), rgba(120,0,120,0.85)),
                         url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&q=80') center/cover fixed;
             animation: parallax 35s linear infinite;
         }
-        @keyframes parallax { 0% {background-position: center 20%;} 100% {background-position: center 80%;} }
-        
-        .floating-3d { animation: float3D 7s ease-in-out infinite; }
-        @keyframes float3D { 0%,100% {transform: translateY(0) rotate(0deg);} 50% {transform: translateY(-60px) rotate(15deg);} }
-        
+        @keyframes parallax {
+            0% {background-position: center 20%;}
+            100% {background-position: center 80%;}
+        }
+       
+        .floating-3d {
+            animation: float3D 7s ease-in-out infinite;
+        }
+        @keyframes float3D {
+            0%,100% {transform: translateY(0) rotate(0deg);}
+            50% {transform: translateY(-60px) rotate(15deg);}
+        }
+       
         .test-card {
             transition: all 0.6s cubic-bezier(0.34,1.56,0.64,1);
             transform: perspective(1500px) rotateX(20deg) rotateY(15deg);
@@ -31,13 +40,18 @@
         .test-card:hover {
             transform: perspective(1500px) rotateX(5deg) rotateY(5deg) scale(1.04);
         }
+        .gradient-text {
+            background: linear-gradient(90deg, #facc15, #f472b6, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
     </style>
 </head>
 <body class="text-white min-h-screen">
 
 <header class="bg-white/10 backdrop-blur-xl border-b border-white/30 sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-8 py-5 flex justify-between items-center">
-        <div class="text-3xl font-bold flex items-center gap-3">🪄 3-Sinf Magic</div>
+        <div class="text-3xl font-bold flex items-center gap-3">🪄 <span class="gradient-text">3-Sinf Magic</span></div>
         <div class="flex gap-8 text-lg font-medium">
             <a onclick="showSection('home')" class="cursor-pointer hover:text-yellow-300">Bosh sahifa</a>
             <a onclick="showSection('test')" class="cursor-pointer hover:text-yellow-300">Test</a>
@@ -47,7 +61,7 @@
     </div>
 </header>
 
-<!-- BOSH SAHIFA (3D) -->
+<!-- BOSH SAHIFA -->
 <div id="home" class="hero-bg min-h-screen flex items-center justify-center relative">
     <div class="absolute inset-0 pointer-events-none">
         <div class="floating-3d absolute top-20 left-16 text-8xl">📖</div>
@@ -56,27 +70,29 @@
         <div class="floating-3d absolute bottom-48 right-32 text-8xl" style="animation-delay:1.6s">✨</div>
     </div>
     <div class="relative z-10 text-center px-6">
-        <h1 class="text-7xl md:text-8xl font-bold mb-6">3-SINF MAGIC WORLD</h1>
-        <p class="text-3xl mb-12">Test ishlang, o‘yin o‘ynang, sovrin yuting!</p>
+        <h1 class="text-7xl md:text-8xl font-bold mb-6 gradient-text">3-SINF MAGIC WORLD</h1>
+        <p class="text-3xl mb-12 text-yellow-200">O‘qi, o‘yna, sovrin yut!</p>
         <div class="flex justify-center gap-6">
-            <button onclick="showSection('test')" class="px-16 py-7 bg-white text-purple-700 text-3xl font-bold rounded-3xl shadow-2xl">TEST BOSHLASH</button>
-            <button onclick="showSection('games')" class="px-16 py-7 bg-yellow-400 text-black text-3xl font-bold rounded-3xl shadow-2xl">O‘YINLAR</button>
+            <button onclick="showSection('test')" class="px-16 py-7 bg-white text-purple-700 text-3xl font-bold rounded-3xl shadow-2xl hover:scale-110 transition">TEST BOSHLASH</button>
+            <button onclick="showSection('games')" class="px-16 py-7 bg-yellow-400 text-black text-3xl font-bold rounded-3xl shadow-2xl hover:scale-110 transition">O‘YINLAR</button>
         </div>
     </div>
 </div>
 
-<!-- TEST -->
+<!-- TEST SECTION -->
 <div id="test" class="hidden max-w-5xl mx-auto p-8">
     <div class="test-card bg-white/95 text-gray-900 rounded-3xl p-12 shadow-2xl">
         <div class="flex justify-between mb-8">
-            <h2 class="text-4xl font-bold">3-Sinf To‘liq Test</h2>
+            <h2 class="text-4xl font-bold">3-Sinf To‘liq Test ✨</h2>
             <div id="timer" class="text-5xl font-bold text-red-500">02:00:00</div>
         </div>
         <div class="flex justify-between mb-8">
-            <span>Savol <span id="current-q" class="text-4xl font-bold text-purple-600">1</span>/100</span>
-            <div class="w-96 h-3 bg-gray-200 rounded-full"><div id="progress" class="h-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full" style="width:1%"></div></div>
+            <span class="text-2xl">Savol <span id="current-q" class="text-4xl font-bold text-purple-600">1</span>/100</span>
+            <div class="w-96 h-3 bg-gray-200 rounded-full">
+                <div id="progress" class="h-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full transition-all" style="width:1%"></div>
+            </div>
         </div>
-        <div id="question-text" class="text-3xl font-semibold mb-12"></div>
+        <div id="question-text" class="text-3xl font-semibold mb-12 min-h-[160px]"></div>
         <div id="options" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
     </div>
     <div class="flex justify-between mt-8">
@@ -85,22 +101,36 @@
     </div>
 </div>
 
-<!-- O‘YINLAR -->
-<div id="games" class="hidden max-w-4xl mx-auto p-8 text-center">
-    <h2 class="text-5xl font-bold mb-12">Yulduzlarni Ushla! ⭐</h2>
-    <button onclick="startStarGame()" class="px-16 py-8 bg-yellow-400 text-black text-3xl font-bold rounded-3xl">O‘yinni Boshlash</button>
+<!-- NATIJA -->
+<div id="result" class="hidden max-w-4xl mx-auto p-8">
+    <div class="test-card bg-white/95 text-gray-900 rounded-3xl p-16 shadow-2xl text-center">
+        <h2 class="text-5xl font-bold mb-8 text-purple-600">Test Natijasi 🎉</h2>
+        <div id="score-circle" class="w-64 h-64 mx-auto rounded-full border-8 flex items-center justify-center text-7xl font-bold mb-10"></div>
+        <div id="percent" class="text-6xl font-bold mb-4"></div>
+        <div id="rating" class="text-4xl font-bold mb-10"></div>
+        <div class="text-2xl mb-12">To‘g‘ri javoblar: <span id="correct-count" class="font-bold text-green-600"></span>/100</div>
+        <div class="flex gap-6 justify-center">
+            <button onclick="restartTest()" class="px-12 py-6 bg-purple-600 text-white rounded-3xl text-xl font-bold">Yana Test Topshirish</button>
+            <button onclick="showSection('home')" class="px-12 py-6 bg-gray-700 text-white rounded-3xl text-xl font-bold">Bosh Sahifaga</button>
+        </div>
+    </div>
 </div>
 
-<!-- SOVRINLAR -->
+<!-- O‘YINLAR va SOVRINLAR qismlari o'zgarmadi (oldingi kod bilan bir xil) -->
+<div id="games" class="hidden max-w-4xl mx-auto p-8 text-center">
+    <h2 class="text-5xl font-bold mb-12">Yulduzlarni Ushla! ⭐</h2>
+    <button onclick="startStarGame()" class="px-16 py-8 bg-yellow-400 text-black text-3xl font-bold rounded-3xl hover:scale-110 transition">O‘yinni Boshlash</button>
+</div>
+
 <div id="shop" class="hidden max-w-5xl mx-auto p-8">
     <h2 class="text-5xl font-bold text-center mb-10">Sovrinlar Do‘koni 🏆</h2>
     <div id="shop-items" class="grid md:grid-cols-2 gap-8"></div>
 </div>
 
 <script>
-// ==================== 100 TA SAVOL ====================
+// ==================== 100 TA TO‘LIQ SAVOL ====================
 const allQuestions = [
-    // Matematika 1-40
+    // 1-40 Matematika
     {q:"25+17=?", a:["40","42","43","41"], correct:1},
     {q:"56−19=?", a:["37","38","39","36"], correct:0},
     {q:"8×7=?", a:["54","56","48","64"], correct:1},
@@ -122,7 +152,7 @@ const allQuestions = [
     {q:"6×6=?", a:["36","42","30","32"], correct:0},
     {q:"27÷3=?", a:["8","9","7","6"], correct:1},
     {q:"13+18=?", a:["30","31","32","33"], correct:1},
-    {q:"50−17=?", a:["33","34","35","32"], correct:1},
+    {q:"50−17=?", a:["33","34","35","32"], correct:0},
     {q:"8×5=?", a:["45","40","35","30"], correct:1},
     {q:"54÷6=?", a:["7","8","9","6"], correct:1},
     {q:"29+31=?", a:["60","59","61","62"], correct:0},
@@ -142,48 +172,90 @@ const allQuestions = [
     {q:"2×9=?", a:["16","18","20","22"], correct:1},
     {q:"40÷5=?", a:["7","8","9","6"], correct:3},
 
-    // Ona tili va O'qish (oldingi savollar)
-    {q:"O‘zbek tilida nechta unli harf bor?", a:["5","6","7","8"], correct:1},
-    {q:"'Kitob' so‘zi nechta bo‘g‘in?", a:["1","2","3","4"], correct:1},
-    {q:"'Ona' so‘zining birinchi harfi?", a:["A","O","N","I"], correct:1},
+    // 41-70 Ona tili
+    {q:"O‘zbek tilida nechta unli harf bor?", a:["5","6","7","8"], correct:2},
+    {q:"\"Kitob\" so‘zi nechta bo‘g‘in?", a:["1","2","3","4"], correct:2},
+    {q:"\"Ona\" so‘zining birinchi harfi?", a:["A","O","N","I"], correct:1},
     {q:"Qaysi biri meva?", a:["Olma","Stol","Kitob","Qalam"], correct:0},
     {q:"Gap nimadan boshlanadi?", a:["Kichik harf","Katta harf","Nuqta","Vergul"], correct:1},
     {q:"Gap oxiriga nima qo‘yiladi?", a:["Vergul","Nuqta","Ikki nuqta","Tire"], correct:1},
     {q:"Qaysi so‘z ot?", a:["Yugurdi","Daraxt","Chiroyli","Tez"], correct:1},
     {q:"Qaysi so‘z fe'l?", a:["O‘qidi","Kitob","Bola","Stol"], correct:0},
-    {q:"'Go‘zal' qanday so‘z?", a:["Ot","Fe'l","Sifat","Son"], correct:2},
-    {q:"'Uch' qanday so‘z?", a:["Son","Ot","Fe'l","Sifat"], correct:0},
+    {q:"\"Go‘zal\" qanday so‘z?", a:["Ot","Fe'l","Sifat","Son"], correct:2},
+    {q:"\"Uch\" qanday so‘z?", a:["Son","Ot","Fe'l","Sifat"], correct:0},
+    {q:"Alifboda nechta harf bor?", a:["28","29","30","32"], correct:1},
+    {q:"\"Chiroyli\" so‘zining antonimi?", a:["Xunuk","Yaxshi","Katta","Kichik"], correct:0},
+    {q:"\"Tez\" so‘zining sinonimi?", a:["Sekin","Shoshilinch","Kuchli","Zaif"], correct:1},
+    {q:"\"Otam\" so‘zi qanday so‘z turkumi?", a:["Ot","Sifat","Son","Fe'l"], correct:0},
+    {q:"Gap oxirida nuqta qo‘yiladi, chunki...", a:["Savol","Buyruq","Hikoya","Undov"], correct:2},
+    {q:"\"Qizil olma\" iborasida qanday so‘z bor?", a:["Ot","Sifat","Fe'l","Son"], correct:1},
+    {q:"\"Men o‘qiyman\" jumlasi qanday?", a:["So‘roq","Hikoya","Buyruq","Undov"], correct:1},
+    {q:"\"Kitob o‘qish foydali\" — bu qanday gap?", a:["Oddiy","Murakkab","So‘roq","Buyruq"], correct:0},
+    {q:"\"Yugur\" so‘zi qanday so‘z turkumi?", a:["Ot","Fe'l","Sifat","Son"], correct:1},
+    {q:"Alifbodagi birinchi harf?", a:["A","O","B","I"], correct:0},
+    {q:"\"Katta\" so‘zining antonimi?", a:["Kichik","Uzun","Qisqa","Yaxshi"], correct:0},
+    {q:"\"Bola o‘ynaydi\" — bu qanday gap?", a:["So‘roq","Hikoya","Buyruq","Undov"], correct:1},
+    {q:"\"Olma\" so‘zi nechta harfdan iborat?", a:["3","4","5","6"], correct:1},
+    {q:"\"Yaxshi o‘quvchi\" iborasida qanday so‘z bor?", a:["Ot","Sifat","Fe'l","Son"], correct:1},
+    {q:"\"Men kitob o‘qiyman\" — nechta so‘z?", a:["3","4","5","6"], correct:1},
+    {q:"\"Qush uchadi\" — qanday gap?", a:["Hikoya","So‘roq","Buyruq","Undov"], correct:0},
+    {q:"\"Chiroyli gul\" iborasida qanday so‘z?", a:["Ot","Sifat","Fe'l","Son"], correct:1},
+    {q:"Ona tilida nechta unli tovush bor?", a:["6","7","8","9"], correct:1},
+    {q:"\"Daraxt\" so‘zi nechta bo‘g‘in?", a:["1","2","3","4"], correct:1},
+    {q:"\"Yomon\" so‘zining antonimi?", a:["Yaxshi","Katta","Kichik","Tez"], correct:0},
+
+    // 71-100 O‘qish
     {q:"Ertak qahramoni kim?", a:["Qahramon","Daraxt","Kitob","Stol"], correct:0},
     {q:"Ertaklar qanday tugaydi?", a:["Xursandchilik bilan","Urush bilan","Tugamaydi","Bilmayman"], correct:0},
-    {q:"Maqol nima?", a:["Dono fikr","Ertak","She‘r","Hikoya"], correct:0},
-    {q:"O‘qishning foydasi nima?", a:["Bilim beradi","Charchatadi","Kasal qiladi","Uyqu keltiradi"], correct:0}
+    {q:"Maqol nima?", a:["Dono fikr","Ertak","She'r","Hikoya"], correct:0},
+    {q:"\"Yaxshilik qil...\" maqolini davom ettiring.", a:["Suv ich","Dengizga ot","Yugur","Kut"], correct:1},
+    {q:"Hikoya nima haqida bo‘ladi?", a:["Voqea","Son","Harf","Rasm"], correct:0},
+    {q:"She'r qanday yoziladi?", a:["Qofiyali","Faqat uzun","Faqat qisqa","Raqam bilan"], correct:0},
+    {q:"Kitobni kim yozadi?", a:["Muallif","Haydovchi","Oshpaz","Dehqon"], correct:0},
+    {q:"Kitob qayerda saqlanadi?", a:["Kutubxona","Bozor","Kasalxona","Stadion"], correct:0},
+    {q:"O‘qishning foydasi nima?", a:["Bilim beradi","Charchatadi","Kasal qiladi","Uyqu keltiradi"], correct:0},
+    {q:"Ertaklarda ko‘pincha kimlar uchraydi?", a:["Hayvonlar","Mashinalar","Telefonlar","Kompyuterlar"], correct:0},
+    {q:"\"Alpomish\" qanday asar?", a:["Ertak","Doston","She'r","Hikoya"], correct:1},
+    {q:"Do‘stlik haqida nima deyiladi?", a:["Do‘st — boylik","Do‘st kerak emas","Do‘st — dushman","Hech narsa"], correct:0},
+    {q:"Mehnatsevarlik nima?", a:["Ishni yaxshi ko‘rish","Yotish","O‘ynash","Ovqatlanish"], correct:0},
+    {q:"Vatanga muhabbat nima?", a:["O‘z mamlakatini sevish","Boshqa davlat","Faqat pul","Hech narsa"], correct:0},
+    {q:"\"Bir olma ikki kishiga yetmaydi\" — bu qanday maqol?", a:["Do‘stlik","Mehnat","Odob","Mehmondo‘stlik"], correct:0},
+    {q:"Kitob o‘qish odamni nima qiladi?", a:["Aqlli qiladi","Zaif qiladi","Yomon qiladi","Hech narsa"], correct:0},
+    {q:"Ertaklarda yaxshilik qanday tugaydi?", a:["G‘alaba bilan","Mag‘lubiyat bilan","Hech qanday","Bilmayman"], correct:0},
+    {q:"Muallif deganda kim tushuniladi?", a:["Yozuvchi","O‘quvchi","O‘qituvchi","Haydovchi"], correct:0},
+    {q:"\"Donolik — bilimda\" degan fikr qayerdan?", a:["Maqol","She'r","Ertak","Hikoya"], correct:0},
+    {q:"Yaxshi o‘quvchi nima qiladi?", a:["Kitob o‘qiydi","Faqat o‘ynaydi","Uyquga yotadi","Televizor ko‘radi"], correct:0},
+    {q:"\"Mehnat — hayot bezagi\" maqolining ma’nosi?", a:["Ishlash yaxshi","Yotish yaxshi","O‘ynash yaxshi","Ovqatlanish yaxshi"], correct:0},
+    {q:"O‘zbekistonning poytaxti qayer?", a:["Toshkent","Samarqand","Buxoro","Andijon"], correct:0},
+    {q:"\"Do‘stlik — oltindan qimmat\" degan maqol nimani bildiradi?", a:["Do‘stlik juda qimmat","Oltin qimmat","Pul qimmat","Hech narsa"], correct:0},
+    {q:"She'rda qofiya nima uchun kerak?", a:["Chiroyli chiqishi uchun","Uzun bo‘lishi uchun","Qisqa bo‘lishi uchun","Raqam bo‘lishi uchun"], correct:0},
+    {q:"\"Quyosh chiqdi\" — bu qanday gap?", a:["Hikoya","So‘roq","Buyruq","Undov"], correct:0},
+    {q:"Ertak qahramoni odatda kim bo‘ladi?", a:["Yaxshi odam","Yomon odam","Hayvon","Barchasi"], correct:0},
+    {q:"\"Bilim — kuch\" degan fikr qayerdan olingan?", a:["Maqol","Ertak","She'r","Hikoya"], correct:0},
+    {q:"O‘qish odamni nima bilan boyitadi?", a:["Bilim bilan","Pul bilan","O‘yinchoq bilan","Ovqat bilan"], correct:0},
+    {q:"\"Vatanim — jonim\" degan so‘z nimani bildiradi?", a:["Vatan sevgisi","Pul sevgisi","O‘yin sevgisi","Ovqat sevgisi"], correct:0},
+    {q:"Yaxshi bola nima qilishi kerak?", a:["O‘qiydi, mehnat qiladi, odobli bo‘ladi","Faqat o‘ynaydi","Faqat uxlaydi","Hech narsa"], correct:0}
 ];
 
 let coins = 50;
-let playerName = "", playerSurname = "";
-
-function askName() {
-    playerName = prompt("Ismingizni kiriting:", "Azizbek") || "O'quvchi";
-    playerSurname = prompt("Familiyangizni kiriting:", "Valiev") || "";
-}
+let currentIndex = 0;
+let selectedAnswers = [];
+let questions = [];
+let timeLeft = 7200;
 
 function updateCoins() {
     document.getElementById('coin-count').textContent = coins;
 }
 
 function showSection(sec) {
-    document.querySelectorAll('#home, #test, #games, #shop').forEach(d => d.classList.add('hidden'));
+    document.querySelectorAll('#home, #test, #result, #games, #shop').forEach(d => d.classList.add('hidden'));
     document.getElementById(sec).classList.remove('hidden');
     if (sec === 'test') startTest();
 }
 
-// Test
-let questions = [], currentIndex = 0, selectedAnswers = [], timeLeft = 7200;
-
 function startTest() {
-    if (!playerName) askName();
-    questions = allQuestions.sort(() => Math.random() - 0.5);
-    selectedAnswers = new Array(questions.length).fill(null);
+    questions = [...allQuestions].sort(() => Math.random() - 0.5);
+    selectedAnswers = new Array(100).fill(null);
     currentIndex = 0;
     timeLeft = 7200;
     renderQuestion();
@@ -207,34 +279,74 @@ function renderQuestion() {
     const q = questions[currentIndex];
     document.getElementById('current-q').textContent = currentIndex + 1;
     document.getElementById('question-text').innerHTML = `<strong>${currentIndex+1}.</strong> ${q.q}`;
-    document.getElementById('progress').style.width = `${((currentIndex+1)/questions.length)*100}%`;
+    
+    const progressPercent = Math.round(((currentIndex + 1) / 100) * 100);
+    document.getElementById('progress').style.width = `${progressPercent}%`;
 
     let html = '';
-    q.a.forEach((opt, i) => {
+    q.a.forEach((opt,i) => {
         const sel = selectedAnswers[currentIndex] === i;
-        html += `<div onclick="selectAnswer(${i})" class="p-8 border-2 ${sel ? 'border-purple-600 bg-purple-100' : 'border-gray-200'} rounded-3xl text-xl cursor-pointer">${String.fromCharCode(65+i)}. ${opt}</div>`;
+        html += `<div onclick="selectAnswer(${i})" class="p-8 border-2 ${sel ? 'border-purple-600 bg-purple-100' : 'border-gray-200'} rounded-3xl text-xl cursor-pointer transition">${String.fromCharCode(65+i)}. ${opt}</div>`;
     });
     document.getElementById('options').innerHTML = html;
 }
 
-function selectAnswer(i) { selectedAnswers[currentIndex] = i; renderQuestion(); }
-function nextQuestion() { if (currentIndex < questions.length-1) { currentIndex++; renderQuestion(); } else finishTest(false); }
-function prevQuestion() { if (currentIndex > 0) { currentIndex--; renderQuestion(); } }
+function selectAnswer(i) {
+    selectedAnswers[currentIndex] = i;
+    renderQuestion();
+}
+
+function nextQuestion() {
+    if(currentIndex < 99) {
+        currentIndex++;
+        renderQuestion();
+    } else {
+        finishTest(false);
+    }
+}
+
+function prevQuestion() {
+    if(currentIndex > 0) {
+        currentIndex--;
+        renderQuestion();
+    }
+}
 
 function finishTest() {
     clearInterval(window.timerInt);
     let correct = 0;
     questions.forEach((q,i) => { if(selectedAnswers[i] === q.correct) correct++; });
-    const earned = Math.floor(correct * 0.8) + 10;
+
+    const percent = Math.round((correct / 100) * 100);
+    let rating = "";
+    let color = "";
+
+    if(percent >= 85) { rating = "🎉 ALO! Juda zo‘r!"; color = "text-green-600"; }
+    else if(percent >= 70) { rating = "👍 YAXSHI natija!"; color = "text-blue-600"; }
+    else if(percent >= 50) { rating = "😐 O‘RTACHA"; color = "text-yellow-600"; }
+    else { rating = "😕 Yana urinib ko‘ring!"; color = "text-red-600"; }
+
+    const earned = Math.floor(correct * 0.8);
     coins += earned;
     updateCoins();
-    alert(`🎉 Tabriklaymiz, ${playerName}!\nTo'g'ri: ${correct}/${questions.length}\nSiz ${earned} ta koin oldingiz!`);
-    showSection('shop');
+
+    document.getElementById('percent').innerHTML = `<span class="${color}">${percent}%</span>`;
+    document.getElementById('rating').innerHTML = `<span class="${color}">${rating}</span>`;
+    document.getElementById('correct-count').textContent = correct;
+
+    const circle = document.getElementById('score-circle');
+    circle.textContent = percent + "%";
+    circle.style.borderColor = percent >= 70 ? "#22c55e" : percent >= 50 ? "#eab308" : "#ef4444";
+
+    showSection('result');
 }
 
-// O'yin
+function restartTest() {
+    showSection('test');
+}
+
+// O‘yin va Sovrinlar (oldingi versiyadan)
 function startStarGame() {
-    if (!playerName) askName();
     let score = 0;
     const area = document.createElement('div');
     area.className = "relative h-96 bg-gradient-to-br from-purple-900 to-pink-900 rounded-3xl mx-auto max-w-2xl mt-10 overflow-hidden";
@@ -260,12 +372,11 @@ function startStarGame() {
         const earned = Math.floor(score / 2) + 8;
         coins += earned;
         updateCoins();
-        alert(`O'yin tugadi!\n${score} ta yulduz ushladingiz.\n${earned} ta koin qo'shildi!`);
+        alert(`🎉 O‘yin tugadi!\n${score} ta yulduz ushladingiz.\n${earned} ta koin oldingiz!`);
         showSection('shop');
     }, 8000);
 }
 
-// Sovrinlar
 const rewards = [
     {name: "Shokolad uchun Tashakkurnoma", cost: 25},
     {name: "Ota-onamga Rahmat", cost: 35},
@@ -277,7 +388,7 @@ function renderShop() {
     let html = '';
     rewards.forEach((r,i) => {
         html += `
-            <div class="card-3d bg-white/95 text-gray-900 p-10 rounded-3xl shadow-xl">
+            <div class="bg-white/95 text-gray-900 p-10 rounded-3xl shadow-xl">
                 <h3 class="text-2xl font-bold mb-4">${r.name}</h3>
                 <p class="text-4xl font-bold text-yellow-500 mb-6">${r.cost} koin</p>
                 <button onclick="buyReward(${i})" class="w-full py-5 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-3xl font-bold">Sotib olish</button>
@@ -291,24 +402,12 @@ function buyReward(i) {
     if (coins >= r.cost) {
         coins -= r.cost;
         updateCoins();
-        generateCertificate(r.name);
+        alert(`✅ ${r.name} sotib olindi!`);
     } else {
-        alert("Yetarli koin yo'q!");
+        alert("Yetarli koin yo‘q!");
     }
 }
 
-function generateCertificate(title) {
-    const { jsPDF } = window.jspdf;
-    const doc = new jsPDF();
-    doc.setFontSize(26);
-    doc.text(title, 105, 40, { align: "center" });
-    doc.setFontSize(18);
-    doc.text(`Hurmatli ${playerName} ${playerSurname}`, 105, 70, { align: "center" });
-    doc.text("Siz ajoyib natijalarga erishdingiz!", 105, 90, { align: "center" });
-    doc.save(`${title}.pdf`);
-}
-
-// Boshlash
 window.onload = () => {
     updateCoins();
     renderShop();
